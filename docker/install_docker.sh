@@ -2,5 +2,5 @@
 sudo apt-get update && sudo apt-get upgrade
 curl -fsSL https://get.docker.com -o get-docker.sh
 sudo sh get-docker.sh
-sudo usermod -aG docker pi
+sudo usermod -aG docker tvalls
 rm get-docker.sh
