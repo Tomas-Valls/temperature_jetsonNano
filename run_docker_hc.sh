@@ -1,4 +1,4 @@
 #!/bin/bash
-docker run --name "temperature_jetsonNano:0.1" \
--d --privileged --net host --restart "always" \
-python3 -u temperature_test.py 15 #dt seconds
+docker build -t temperature_jetsonnano:0.1 . \
+docker run  "temperature_jetsonnano:0.1" \
+python3 -u temperature_test.py 15 
