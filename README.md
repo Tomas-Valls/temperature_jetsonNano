@@ -21,23 +21,11 @@ cd tmp && git clone https://github.com/Tomas-Valls/temperature_jetsonNano.git
 ```bash
 cd ~/tmp/temperature_jetsonNano/docker
 chmod +x install_docker.sh
-chmod +x install_compose.sh
-
 ./install_docker.sh
-./install_compose.sh
 ```
 
 
-## Creación de directorios
 
-Crear directorios, ejecutando:
-
-```bash
-cp ~/tmp/temperature_jetsonNano/make_dirs.sh ~/
-cd
-chmod +x make_dirs.sh
-./make_dirs.sh
-```
 
 
 
@@ -45,9 +33,19 @@ chmod +x make_dirs.sh
 - En caso de no utilizar `docker-compose` :
 
 ```bash
-cp ~/tmp/temperature_jetsonNano/run_docker_hc.sh ~/Sinanticam/sinanticam_cam/
+cd ~/tmp/temperature_jetsonNano
 
-cd ~/Sinanticam/sinanticam_cam/
-chmod +x run_docker_hc.sh
+sudo docker build -t temperature_jetsonnano:0.1 . \
+docker run  "temperature_jetsonnano:0.1" \
+python3 -u temperature_test.py 15 
+
 ```
 
+- En caso de utilizar `docker-compose` :
+
+```bash
+
+cd ~/Sinantica/sinanticam_cam/docker
+sudo docker-compose up -d
+
+```
